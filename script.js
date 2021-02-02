@@ -2,9 +2,10 @@ const quoteDiv = document.getElementById('quote');
 const authorDiv = document.getElementById('author');
 const mainWrappperDiv = document.querySelector('.main');
 const backImage = document.querySelector('.back-img');
+const API_URL = 'https://quotes.rest/qod.json';
 
 const getQuote = () => {
-  fetch('https://quotes.rest/qod.json')
+  fetch(API_URL)
     .then(res => res.json())
     .then(res => {
       const quoteData = res.contents.quotes[0];
@@ -21,7 +22,11 @@ window.onload = function () {
 };
 
 const downloadImage = () => {
-  html2canvas(mainWrappperDiv).then(canvas => {
+  html2canvas(mainWrappperDiv, {
+    // allowTaint: true,
+    logging: true
+    // taintTest: false
+  }).then(canvas => {
     const link = document.createElement('a');
     document.body.appendChild(link);
     link.download = 'html_image.png';
@@ -30,6 +35,7 @@ const downloadImage = () => {
     link.click();
 
     // document.body.appendChild(canvas);
+    // window.open(canvas.toDataURL());
   });
 };
 

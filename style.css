@@ -74,7 +74,7 @@ a {
 }
 
 .top {
-  padding: 20px;
+  /* padding: 20px; */
   z-index: 2;
 }
 
@@ -88,6 +88,11 @@ a {
   text-align: center;
   font-size: 1.8em;
   z-index: 1;
+  text-shadow: 0 0 20px #444444;
+  background-color: #00000042;
+  /* border-radius: 10px; */
+  box-shadow: 0 0 20px 0px #00000070;
+  font-weight: 100;
 }
 
 #author {
@@ -127,4 +132,13 @@ a {
 .bottom .btn:hover {
   background-color: #ffffff30;
   color: #fff;
+}
+
+.download-image {
+  padding: 0.5rem 1rem;
+  background: none;
+  border: 1px solid;
+  border-radius: 5px;
+  color: #999;
+  cursor: pointer;
 }
