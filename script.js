@@ -10,13 +10,15 @@ const getQuote = () => {
       const quoteData = res.contents.quotes[0];
       quoteDiv.innerText = quoteData.quote;
       authorDiv.innerText = quoteData.author;
-      backImage.style.backgroundImage = `url(${quoteData.background})`;
+      mainWrappperDiv.style.backgroundImage = `url(${quoteData.background})`;
     })
     .catch(err => console.log(err));
 };
 
-// Call the function initially
-getQuote();
+window.onload = function () {
+  // Call the function initially
+  getQuote();
+};
 
 const downloadImage = () => {
   html2canvas(mainWrappperDiv).then(canvas => {
